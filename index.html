@@ -138,6 +138,35 @@ ul { padding-left:20px; }
 
 <!-- JS to Load Mini Posts & Daily Tip -->
 <script src="mini-posts.js"></script>
+  // 365 Daily Tips
+const miniPosts = [
+"Focus on high-yield USMLE Step 1 topics today.",
+"Do 50 NCLEX practice questions and review explanations carefully.",
+"Use adaptive learning to improve weak areas efficiently.",
+"Simulate test conditions to boost exam confidence.",
+"Incorporate daily high-yield questions to maximize your score.",
+"Track weak areas daily for effective exam preparation.",
+"Use spaced repetition with practice questions for high-yield topics.",
+"Daily review of missed questions improves retention.",
+"Adaptive question banks help focus on weak exam areas.",
+"Plan your study schedule to include practice questions and active review.",
+// Add 355 more tips here
+];
+
+// Daily main tip
+const today = new Date();
+const tipIndex = today.getDate() % miniPosts.length;
+document.getElementById('daily-fresh-content').innerHTML = `<h2>Daily Fresh Study Tip</h2><p>${miniPosts[tipIndex]}</p><a class="cta-button" href="https://www.linkconnector.com/ta.php?lc=007949127543007614&atid=BoardVitalsWeb" target="_blank">Get Today’s Study Tip</a>`;
+
+// Display first 12 mini posts
+const miniContainer = document.getElementById('mini-post-container');
+for(let i=0;i<12;i++){
+    const index = (today.getDate() + i) % miniPosts.length;
+    const div = document.createElement('div');
+    div.className = 'mini-post';
+    div.innerHTML = `<p>${miniPosts[index]} <a href="https://www.linkconnector.com/ta.php?lc=007949127543007614&atid=BoardVitalsWeb" target="_blank">Learn More</a></p>`;
+    miniContainer.appendChild(div);
+}
 
 </body>
 </html>
